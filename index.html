@@ -2,27 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Redirecting...</title>
   <script>
-     window.onload = function () {
-      // Get current URL parameters
+    window.onload = function () {
       const params = new URLSearchParams(window.location.search);
+      let targetUrl = params.get("u");
 
-      // Extract "id" parameter
-      const targetUrl = params.get("u");
-
-      // Redirect if valid
       if (targetUrl) {
+        // Decode if it was URL-encoded
         targetUrl = decodeURIComponent(targetUrl);
-        // Basic safety: allow only http/https URLs
+
         if (targetUrl.startsWith("http://") || targetUrl.startsWith("https://")) {
-          window.location.href = targetUrl;
+          window.location.replace(targetUrl); // cleaner redirect
         } else {
-          document.body.innerHTML = "<h2>Invalid URL.</h2>";
+          document.body.innerHTML = "<h2>Invalid redirect URL.</h2>";
         }
       } else {
-        
+        document.body.innerHTML = "<h2>No redirect URL provided.</h2>";
       }
     };
   </script>
 </head>
+<body>
+  <h2>Redirecting, please wait...</h2>
+</body>
 </html>
