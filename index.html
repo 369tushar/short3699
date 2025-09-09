@@ -15,10 +15,10 @@
         if (targetUrl.startsWith("http://") || targetUrl.startsWith("https://")) {
           window.location.replace(targetUrl); // cleaner redirect
         } else {
-          document.body.innerHTML = "<h2>Invalid redirect URL.</h2>";
+          document.body.innerHTML = "<h2>Invalid URL.</h2>";
         }
       } else {
-        document.body.innerHTML = "<h2>No redirect URL provided.</h2>";
+       
       }
     };
   </script>
